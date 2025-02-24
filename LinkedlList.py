@@ -20,6 +20,8 @@ class LinkedList:
             print(temp.value)
             temp = temp.next
 
+# add to last
+
     def append(self,value):
         new_node = Node(value)
         if self.head is None:
@@ -27,12 +29,45 @@ class LinkedList:
             self.tail = new_node
         else:
             self.tail.next = new_node
-            self.next = new_node
+            self.tail = new_node
+        self.length += 1
+        return True
+    
+# pop last one out
+    def pop(self):
+        if self.head is None:
+            return None
+        else:
+            temp = self.head
+            pre = self.head
+            while (temp.next):
+                pre = temp
+                temp = temp.next
+            self.tail = pre
+            self.tail.next = None
+            self.length -=1
+            if self.length == 0:
+                self.head = None
+                self.tail = None
+        return temp.value
+    
+# add to first element
+    def prepend(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else: 
+            new_node.next = self.head
+            self.head = new_node
         self.length += 1
         return True
 
 
 new_linked_list = LinkedList(10)
 new_linked_list.append(3)
+new_linked_list.append(5)
+new_linked_list.pop()
+new_linked_list.prepend(2)
 new_linked_list.print()
     
