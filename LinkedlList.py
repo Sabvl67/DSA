@@ -62,6 +62,18 @@ class LinkedList:
             self.head = new_node
         self.length += 1
         return True
+    
+    def popFirst(self):
+        if new_linked_list.length == 0:
+            return None
+        else:
+            temp = self.head
+            self.head = self.head.next
+            temp.tail = None
+            new_linked_list.length -= 1
+        if new_linked_list == 1:
+            self.tail == None
+        return temp
 
 
 new_linked_list = LinkedList(10)
@@ -69,5 +81,6 @@ new_linked_list.append(3)
 new_linked_list.append(5)
 new_linked_list.pop()
 new_linked_list.prepend(2)
+new_linked_list.popFirst()
 new_linked_list.print()
     
