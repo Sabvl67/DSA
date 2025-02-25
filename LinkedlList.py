@@ -74,6 +74,15 @@ class LinkedList:
         if new_linked_list == 1:
             self.tail == None
         return temp
+    
+    def get(self,index):
+        if index < 0 or index >= self.length:
+            return None
+        else:
+            temp = self.head
+            for i in range(index):
+                temp = temp.next
+            return temp.value
 
 
 new_linked_list = LinkedList(10)
@@ -83,4 +92,4 @@ new_linked_list.pop()
 new_linked_list.prepend(2)
 new_linked_list.popFirst()
 new_linked_list.print()
-    
+print(new_linked_list.get(1)) 
