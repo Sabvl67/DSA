@@ -81,8 +81,17 @@ class LinkedList:
         else:
             temp = self.head
             for i in range(index):
-                temp = temp.next
+                # Since temp point to the head initially, this we increment temp one by one as how many time the loop is run
+                temp = temp.next 
             return temp.value
+        
+    def set_value (self, index, value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+
 
 
 new_linked_list = LinkedList(10)
